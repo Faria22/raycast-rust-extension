@@ -2,7 +2,6 @@ import { fetchSearchIndex } from "./src/api/rustdoc";
 
 async function test() {
     console.log("Fetching index...");
-    // Mock global fetch if needed (but used node-fetch in src)
     try {
         const items = await fetchSearchIndex();
         console.log(`Successfully fetched ${items.length} items.`);
