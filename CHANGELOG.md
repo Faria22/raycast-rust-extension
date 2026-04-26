@@ -1,6 +1,11 @@
 # Rust Documentation Changelog
 
-## [Initial Version] - {PR_MERGE_DATE}
+## [Fix Duplicate Search Results] - {PR_MERGE_DATE}
+
+- Removed duplicate results for Rust items re-exported across `std`, `core`, and `alloc`
+- Removed deprecated `node-fetch` usage to avoid `punycode` deprecation warnings
+
+## [Initial Version] - 2026-01-06
 
 Initial release of the Rust Documentation extension.
 
