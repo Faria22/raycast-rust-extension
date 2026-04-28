@@ -4,7 +4,9 @@
   "description": "Search Rust Standard Library documentation",
   "icon": "command-icon.png",
   "author": "patrick-ehimen",
-  "contributors": [],
+  "contributors": [
+        "Faria22"
+    ],
   "categories": [
     "Documentation",
     "Developer Tools"
