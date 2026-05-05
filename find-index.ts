@@ -1,5 +1,3 @@
-import fetch from "node-fetch";
-
 const base = "https://doc.rust-lang.org/";
 const stdBase = "https://doc.rust-lang.org/std/";
 const suffix = "1.92.0";

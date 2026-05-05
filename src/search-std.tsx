@@ -93,10 +93,16 @@ export default function Command() {
 
       if (isFavorite) {
         newFavorites = favorites.filter((f) => f.url !== item.url);
-        await showToast({ title: "Removed from Favorites", style: Toast.Style.Success });
+        await showToast({
+          title: "Removed from Favorites",
+          style: Toast.Style.Success,
+        });
       } else {
         newFavorites = [item, ...favorites];
-        await showToast({ title: "Added to Favorites", style: Toast.Style.Success });
+        await showToast({
+          title: "Added to Favorites",
+          style: Toast.Style.Success,
+        });
       }
 
       setFavorites(newFavorites);
@@ -156,7 +162,11 @@ export default function Command() {
     // Show top-level modules for browsing
     // We filter for modules that don't have nested paths (mostly)
     return data
-      .filter((item) => item.type === "module" && !item.path.includes("::", item.path.indexOf("::") + 2))
+      .filter(
+        (item) =>
+          item.type === "module" &&
+          !item.path.includes("::", item.path.indexOf("::") + 2),
+      )
       .slice(0, 40);
   }, [data]);
 
@@ -174,7 +184,11 @@ export default function Command() {
         }}
         accessories={[
           { tag: { value: item.type, color: getColorForType(item.type) } },
-          { icon: isFavorite ? { source: Icon.Star, tintColor: Color.Yellow } : undefined },
+          {
+            icon: isFavorite
+              ? { source: Icon.Star, tintColor: Color.Yellow }
+              : undefined,
+          },
         ]}
         actions={
           <ActionPanel>
@@ -185,11 +199,16 @@ export default function Command() {
                 target={<DocDetail item={item} />}
                 onPush={() => addToHistory(item)}
               />
-              <Action.OpenInBrowser url={item.url} onOpen={() => addToHistory(item)} />
+              <Action.OpenInBrowser
+                url={item.url}
+                onOpen={() => addToHistory(item)}
+              />
             </ActionPanel.Section>
             <ActionPanel.Section>
               <Action
-                title={isFavorite ? "Remove from Favorites" : "Add to Favorites"}
+                title={
+                  isFavorite ? "Remove from Favorites" : "Add to Favorites"
+                }
                 icon={isFavorite ? Icon.StarDisabled : Icon.Star}
                 onAction={() => toggleFavorite(item)}
               />
@@ -214,10 +233,14 @@ export default function Command() {
       {searchText === "" ? (
         <>
           {favorites.length > 0 && (
-            <List.Section title="Favorites">{favorites.map(renderItem)}</List.Section>
+            <List.Section title="Favorites">
+              {favorites.map(renderItem)}
+            </List.Section>
           )}
           {history.length > 0 && (
-            <List.Section title="Recent">{history.map(renderItem)}</List.Section>
+            <List.Section title="Recent">
+              {history.map(renderItem)}
+            </List.Section>
           )}
           {topLevelModules.length > 0 && (
             <List.Section title="Standard Library Modules">
@@ -228,7 +251,10 @@ export default function Command() {
             history.length === 0 &&
             topLevelModules.length === 0 &&
             !isLoading && (
-              <List.EmptyView title="Search for Rust documentation" icon={Icon.MagnifyingGlass} />
+              <List.EmptyView
+                title="Search for Rust documentation"
+                icon={Icon.MagnifyingGlass}
+              />
             )}
         </>
       ) : (
