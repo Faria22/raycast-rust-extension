@@ -4,9 +4,13 @@
   "description": "Search Rust Standard Library documentation",
   "icon": "command-icon.png",
   "author": "patrick-ehimen",
+  "platforms": [
+    "macOS",
+    "Windows"
+  ],
   "contributors": [
-        "FariaF22"
-    ],
+    "FariaF22"
+  ],
   "categories": [
     "Documentation",
     "Developer Tools"
@@ -22,7 +26,7 @@
     }
   ],
   "dependencies": {
-    "@raycast/api": "^1.104.1",
+    "@raycast/api": "^1.104.20",
     "@raycast/utils": "^2.2.2",
     "cheerio": "^1.1.2"
   },
